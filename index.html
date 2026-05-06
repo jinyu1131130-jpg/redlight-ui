@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>預測紅綠燈查詢</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="app">
+    <header class="hero">
+      <div class="eyebrow">BNI 預測紅綠燈</div>
+      <h1>個人查詢介面</h1>
+      <p>選擇姓名後，可試填當月未來計畫，系統會自動帶出預測結果。</p>
+    </header>
+
+    <section class="card">
+      <div class="section-title">查詢會員</div>
+
+      <label class="label" for="memberInput">會員姓名</label>
+      <input
+        id="memberInput"
+        class="input"
+        list="memberList"
+        placeholder="請輸入或選擇會員姓名"
+        autocomplete="off"
+      />
+
+      <datalist id="memberList"></datalist>
+
+      <button class="btn primary" onclick="queryMember()">查詢</button>
+
+      <div id="fileInfo" class="file-info"></div>
+    </section>
+
+    <section id="resultArea" class="hidden">
+      <section class="score-card">
+        <div>
+          <div class="muted">目前會員</div>
+          <div id="resultName" class="member-name">—</div>
+        </div>
+
+        <div id="scoreBadge" class="score-badge">
+          <span id="scoreNumber">—</span>
+          <small id="lightText">—</small>
+        </div>
+      </section>
+
+      <section class="grid-3">
+        <div class="mini-card">
+          <div class="mini-label">月份</div>
+          <div id="monthText" class="mini-value">—</div>
+        </div>
+
+        <div class="mini-card">
+          <div class="mini-label">尚未入帳週數</div>
+          <div id="unpostedWeeksText" class="mini-value">—</div>
+        </div>
+
+        <div class="mini-card">
+          <div class="mini-label">可達目標分數</div>
+          <div id="targetScoreText" class="mini-value">—</div>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="section-title">當月未來計畫</div>
+        <p class="hint">這一區可以調整，其他資料僅供讀取。</p>
+        <div id="planInputs" class="plan-list"></div>
+        <button class="btn primary" onclick="updatePlan()">重新試算</button>
+      </section>
+
+      <section class="card">
+        <div class="section-title">尚缺數值</div>
+        <div id="shortfallArea" class="shortfall-list"></div>
+      </section>
+
+      <section class="card">
+        <div class="section-title">半年累計</div>
+        <div id="halfArea" class="half-grid"></div>
+      </section>
+
+      <section class="card">
+        <div class="section-title">提醒文字</div>
+        <textarea id="copyText" class="textarea" readonly></textarea>
+        <button class="btn secondary" onclick="copyReminder()">一鍵複製提醒文字</button>
+      </section>
+    </section>
+
+    <div id="loading" class="loading hidden">處理中，請稍候...</div>
+    <div id="toast" class="toast hidden"></div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

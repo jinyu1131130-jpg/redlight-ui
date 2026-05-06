@@ -223,15 +223,6 @@ function renderShortfall(headers, labels, rows) {
   area.appendChild(tableWrap);
 }
 
-function formatNumberText(value) {
-  const text = String(value || "").replace(/,/g, "").trim();
-  if (text === "") return "";
-
-  const n = Number(text);
-  if (isNaN(n)) return value;
-
-  return n.toLocaleString("zh-TW");
-}
 
 function formatNumberText(value) {
   const text = String(value || "").replace(/,/g, "").trim();

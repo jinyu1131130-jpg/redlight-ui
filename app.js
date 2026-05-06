@@ -164,7 +164,6 @@ function renderShortfall(headers, labels, rows) {
   const area = document.getElementById("shortfallArea");
   area.innerHTML = "";
 
-  // 只保留有標題的欄位，避免空白欄一起顯示
   const displayColumns = headers
     .map((header, index) => ({
       label: String(header || "").trim(),
@@ -178,7 +177,6 @@ function renderShortfall(headers, labels, rows) {
   const table = document.createElement("table");
   table.className = "shortfall-table";
 
-  // 表頭
   const thead = document.createElement("thead");
   const headRow = document.createElement("tr");
 
@@ -195,7 +193,6 @@ function renderShortfall(headers, labels, rows) {
   thead.appendChild(headRow);
   table.appendChild(thead);
 
-  // 表身
   const tbody = document.createElement("tbody");
 
   labels.forEach((label, rowIndex) => {
@@ -212,10 +209,7 @@ function renderShortfall(headers, labels, rows) {
       const td = document.createElement("td");
       td.className = "shortfall-cell";
 
-      const rawValue = row[col.index];
-      const value = String(rawValue ?? "").trim();
-
-      // 空白就維持空白，不要硬顯示 0
+      const value = String(row[col.index] ?? "").trim();
       td.textContent = value === "" ? "" : formatNumberText(value);
 
       tr.appendChild(td);

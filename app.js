@@ -165,35 +165,65 @@ function renderShortfall(headers, labels, rows) {
   area.innerHTML = "";
 
   labels.forEach((label, rowIndex) => {
+    const row = rows[rowIndex] || [];
+
     const card = document.createElement("div");
     card.className = "shortfall-card";
 
     const title = document.createElement("div");
     title.className = "shortfall-title";
-    title.textContent = label || "—";
+    title.textContent = "補 " + (label || "—");
 
     const body = document.createElement("div");
     body.className = "shortfall-body";
 
-    const row = rows[rowIndex] || [];
+    let hasContent = false;
 
     headers.forEach((header, colIndex) => {
       const h = String(header || "").trim();
-      const v = row[colIndex];
+      const v = String(row[colIndex] || "").trim();
 
+      // 表頭空白欄不顯示
       if (!h) return;
+
+      // 完全空白不顯示；0 要顯示，因為 0 代表不用補
+      if (v === "") return;
+
+      hasContent = true;
 
       const item = document.createElement("div");
       item.className = "shortfall-item";
-      item.innerHTML = `<span>${escapeHtml(h)}</span><strong>${escapeHtml(v || "0")}</strong>`;
+      item.innerHTML = `
+        <span>${escapeHtml(h)}</span>
+        <strong>${escapeHtml(formatNumberText(v))}</strong>
+      `;
 
       body.appendChild(item);
     });
+
+    if (!hasContent) {
+      const empty = document.createElement("div");
+      empty.className = "shortfall-empty";
+      empty.textContent = "目前沒有需要補強的數值";
+      body.appendChild(empty);
+    }
 
     card.appendChild(title);
     card.appendChild(body);
     area.appendChild(card);
   });
+}
+
+function formatNumberText(value) {
+  const text = String(value || "").replace(/,/g, "").trim();
+
+  if (text === "") return "";
+
+  const n = Number(text);
+
+  if (isNaN(n)) return value;
+
+  return n.toLocaleString("zh-TW");
 }
 
 function renderHalf(headers, values) {

@@ -282,19 +282,6 @@ function renderHalf(headers, values) {
   });
 }
 
-function copyReminder() {
-  const text = document.getElementById("copyText");
-
-  if (!text.value) {
-    showToast("目前沒有可複製的提醒文字");
-    return;
-  }
-
-  navigator.clipboard.writeText(text.value)
-    .then(() => showToast("已複製提醒文字"))
-    .catch(() => showToast("複製失敗，請手動選取文字"));
-}
-
 function showLoading(show) {
   document.getElementById("loading").classList.toggle("hidden", !show);
 }

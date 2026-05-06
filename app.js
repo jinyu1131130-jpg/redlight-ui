@@ -143,8 +143,7 @@ applyScoreColor("targetScoreText", data.targetScore);
   renderShortfall(data.planHeaders || [], data.shortfallLabels || [], data.shortfallValues || []);
   renderHalf(data.halfHeaders || [], data.halfValues || []);
 
-  document.getElementById("copyText").value = data.copyText || "";
-}
+  }
 
 function renderPlanInputs(headers, values) {
   const area = document.getElementById("planInputs");

@@ -122,9 +122,11 @@ function renderResult(data) {
   const badge = document.getElementById("scoreBadge");
   badge.className = "score-badge " + (data.light ? data.light.className : "");
 
-  document.getElementById("monthText").textContent = data.month || "—";
-  document.getElementById("unpostedWeeksText").textContent = data.unpostedWeeks || "—";
-  document.getElementById("targetScoreText").textContent = data.targetScore || "—";
+document.getElementById("monthText").textContent = data.month || "—";
+document.getElementById("unpostedWeeksText").textContent = data.unpostedWeeks || "—";
+document.getElementById("targetScoreText").textContent = data.targetScore || "—";
+
+applyScoreColor("targetScoreText", data.targetScore);
 
   renderPlanInputs(data.planHeaders || [], data.planValues || []);
   renderShortfall(data.planHeaders || [], data.shortfallLabels || [], data.shortfallValues || []);
@@ -223,7 +225,25 @@ function renderShortfall(headers, labels, rows) {
   area.appendChild(tableWrap);
 }
 
+function getLightClassByScore(scoreValue) {
+  const score = Number(String(scoreValue || "").replace(/,/g, "").trim());
 
+  if (isNaN(score)) return "score-unknown";
+
+  if (score >= 70) return "score-green";
+  if (score >= 50) return "score-yellow";
+  if (score >= 30) return "score-red";
+
+  return "score-gray";
+}
+
+function applyScoreColor(elementId, scoreValue) {
+  const el = document.getElementById(elementId);
+  if (!el) return;
+
+  el.classList.remove("score-green", "score-yellow", "score-red", "score-gray", "score-unknown");
+  el.classList.add(getLightClassByScore(scoreValue));
+}
 function formatNumberText(value) {
   const text = String(value || "").replace(/,/g, "").trim();
 

@@ -1,4 +1,4 @@
-const GAS_URL = "https://script.google.com/macros/s/AKfycbw_9K8PimmNpeIf97V4-a4O8s_aWp9Od6nG2EG48E06ybhCikNZrF0XGTFzfWqZDw/exec";
+const GAS_URL = "const GAS_URL = "https://script.google.com/macros/s/AKfycbx78czFRIlJj0sxhO-iHJfl01-l1crbwAZCGHSKYnuGsoOaIpvbt2T3j5OWOuqWoHk9/exec";
 
 let currentData = null;
 let currentMember = "";

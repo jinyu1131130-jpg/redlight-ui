@@ -68,6 +68,17 @@ function queryMember() {
     });
 }
 
+function resetSearch() {
+  currentData = null;
+  currentMember = "";
+  latestPlanValues = [];
+
+  document.getElementById("memberInput").value = "";
+  document.getElementById("resultArea").classList.add("hidden");
+  document.getElementById("fileInfo").scrollIntoView({ behavior: "smooth", block: "center" });
+
+  showToast("已清空，可以重新選擇會員");
+}
 function updatePlan() {
   if (!currentMember) {
     showToast("請先查詢會員");

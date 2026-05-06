@@ -406,3 +406,17 @@ h1 {
   padding: 4px 10px;
   display: inline-block;
 }
+.button-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.button-row .btn {
+  margin-top: 14px;
+}
+@media (max-width: 520px) {
+  .button-row {
+    grid-template-columns: 1fr;
+  }
+}

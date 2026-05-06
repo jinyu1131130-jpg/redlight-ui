@@ -401,3 +401,44 @@ h1 {
 .shortfall-cell {
   min-width: 88px;
 }
+.shortfall-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.shortfall-table {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: collapse;
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.shortfall-table th,
+.shortfall-table td {
+  border: 1px solid #e5e7eb;
+  text-align: center;
+  padding: 14px 10px;
+  white-space: nowrap;
+}
+
+.shortfall-table thead th {
+  background: #f3f4f6;
+  font-size: 15px;
+  font-weight: 900;
+  color: #111827;
+}
+
+.shortfall-table tbody td {
+  font-size: 16px;
+  font-weight: 800;
+  color: #111827;
+}
+
+.shortfall-row-title {
+  background: #f9fafb;
+  font-weight: 900;
+  color: #111827;
+}

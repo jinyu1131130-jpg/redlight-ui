@@ -225,51 +225,6 @@ h1 {
   color: #374151;
 }
 
-.shortfall-list {
-  display: grid;
-  gap: 12px;
-}
-
-.shortfall-card {
-  border: 1px solid #e5e7eb;
-  border-radius: 16px;
-  overflow: hidden;
-  background: #fff;
-}
-
-.shortfall-title {
-  padding: 12px 14px;
-  font-weight: 900;
-  background: #f9fafb;
-  border-bottom: 1px solid #e5e7eb;
-}
-
-.shortfall-body {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-}
-
-.shortfall-item {
-  padding: 12px 14px;
-  border-bottom: 1px solid #f3f4f6;
-  border-right: 1px solid #f3f4f6;
-}
-
-.shortfall-item span,
-.half-item span {
-  display: block;
-  font-size: 12px;
-  color: #6b7280;
-  margin-bottom: 4px;
-}
-
-.shortfall-item strong,
-.half-item strong {
-  display: block;
-  font-size: 18px;
-  color: #111827;
-}
-
 .half-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -281,6 +236,19 @@ h1 {
   border-radius: 14px;
   padding: 12px;
   border: 1px solid #e5e7eb;
+}
+
+.half-item span {
+  display: block;
+  font-size: 12px;
+  color: #6b7280;
+  margin-bottom: 4px;
+}
+
+.half-item strong {
+  display: block;
+  font-size: 18px;
+  color: #111827;
 }
 
 .textarea {
@@ -324,83 +292,7 @@ h1 {
   display: none !important;
 }
 
-@media (max-width: 520px) {
-  .app {
-    padding: 12px;
-    padding-bottom: 44px;
-  }
-
-  .hero {
-    padding: 22px;
-    border-radius: 22px;
-  }
-
-  h1 {
-    font-size: 25px;
-  }
-
-  .score-card {
-    align-items: stretch;
-  }
-
-  .score-badge {
-    min-width: 96px;
-    min-height: 96px;
-  }
-
-  .grid-3,
-  .shortfall-body,
-  .half-grid {
-    grid-template-columns: 1fr;
-  }
-}
-.shortfall-empty {
-  padding: 14px;
-  color: #6b7280;
-  font-size: 14px;
-}
-.shortfall-table-wrap {
-  overflow-x: auto;
-}
-
-.shortfall-table {
-  width: 100%;
-  border-collapse: collapse;
-  background: #fff;
-  border: 2px solid #111827;
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-.shortfall-table th,
-.shortfall-table td {
-  border: 1px solid #d1d5db;
-  text-align: center;
-  padding: 14px 10px;
-}
-
-.shortfall-table thead th {
-  background: #f3f4f6;
-  font-size: 18px;
-  font-weight: 800;
-  color: #111827;
-}
-
-.shortfall-table tbody td {
-  font-size: 16px;
-  font-weight: 700;
-  color: #111827;
-}
-
-.shortfall-row-title {
-  background: #f9fafb;
-  font-weight: 900;
-  min-width: 80px;
-}
-
-.shortfall-cell {
-  min-width: 88px;
-}
+/* 尚缺數值：表格版 */
 .shortfall-table-wrap {
   width: 100%;
   overflow-x: auto;
@@ -441,4 +333,43 @@ h1 {
   background: #f9fafb;
   font-weight: 900;
   color: #111827;
+}
+
+.shortfall-cell {
+  min-width: 88px;
+}
+
+/* 手機版 */
+@media (max-width: 520px) {
+  .app {
+    padding: 12px;
+    padding-bottom: 44px;
+  }
+
+  .hero {
+    padding: 22px;
+    border-radius: 22px;
+  }
+
+  h1 {
+    font-size: 25px;
+  }
+
+  .score-card {
+    align-items: stretch;
+  }
+
+  .score-badge {
+    min-width: 96px;
+    min-height: 96px;
+  }
+
+  .grid-3,
+  .half-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .shortfall-table {
+    min-width: 560px;
+  }
 }

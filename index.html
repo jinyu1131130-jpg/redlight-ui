@@ -29,7 +29,10 @@
 
       <datalist id="memberList"></datalist>
 
-      <button class="btn primary" onclick="queryMember()">查詢</button>
+      <div class="button-row">
+  <button class="btn primary" onclick="queryMember()">查詢</button>
+  <button class="btn secondary" onclick="resetSearch()">重新選擇</button>
+</div>
 
       <div id="fileInfo" class="file-info"></div>
     </section>
@@ -98,6 +101,6 @@
     <div id="toast" class="toast hidden"></div>
   </div>
 
-  <script src="app.js?v=7"></script>
+  <script src="app.js?v=8"></script>
 </body>
 </html>
